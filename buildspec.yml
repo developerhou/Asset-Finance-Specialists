@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14 # Use the Node.js version you need
+
+  build:
+    commands:
+      - npm install # Install project dependencies
+      - npm run build # Replace with your build command
+
+  post_build:
+    commands:
+      - npm test # Replace with your test command
+      # Additional post-build commands go here
+
+artifacts:
+  files: '**/*' # Include all files in the build artifact
