@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: NestJS AWS Lambda Example
+
+Resources:
+  MyFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: aws-serverless-express.handler
+      Runtime: nodejs16.x
+      MemorySize: 128
+      Timeout: 10
+      Events:
+        Api:
+          Type: 'Api'
+          Properties:
+            Path: /
+            Method: ANY
