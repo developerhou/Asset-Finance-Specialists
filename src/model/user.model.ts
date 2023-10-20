@@ -1,11 +1,15 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
-export type UserDocument = User & Document;
-
 @Schema()
-export class User {
+export class User extends Document {
+  @Prop({
+    type: String,
+    default: () => new mongoose.Types.ObjectId().toHexString(),
+  })
+  userId: string;
+
   @Prop({ required: true })
   username: string;
 

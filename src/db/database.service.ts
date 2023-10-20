@@ -16,7 +16,7 @@ export class DBService {
   async getClient(): Promise<Db> {
     try {
       await this.mongoClient.connect();
-      const db: Db = this.mongoClient.db('asset-finance');
+      const db: Db = this.mongoClient.db(process.env.DB_NAME);
       return db;
     } catch (e) {
       throw new InternalServerErrorException(e);

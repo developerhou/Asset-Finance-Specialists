@@ -6,6 +6,6 @@ export class JWTService {
   constructor(private readonly jwtService: JwtService) {}
 
   async signPayload(payload: any): Promise<string> {
-    return this.jwtService.sign(payload);
+    return this.jwtService.signAsync(payload);
   }
 }
